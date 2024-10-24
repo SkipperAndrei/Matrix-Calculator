@@ -1,0 +1,28 @@
+Copyright 2023-2024 Giurgiu Andrei-Stefan 315CA
+
+Un prim pas pentru rezolvarea temei cu numarul 2 a fost crearea celor 2 fisiere "my_octave.c" si "my_octave_functions.h". Primul contine functia main in care am folosit un switch pentru a vedea care este comanda introdusa de la tastatura de catre utilizator si pentru a executa comenzile necesare pentru a avea outputul dorit. In cel de al doilea fisier se afla functiile auxiliare folosite pentru a rezolva taskurile.
+In primul rand, utilizatorul introduce in terminal litera corespunzatoare comenzii dorite. In cazul in care litera nu are o comanda asociata pe ecran va aparea un mesaj de eroare: "No matrix with the given index". De asemenea, pentru o implementare mai usor de inteles am decis sa folosesc un resizable array de tip struct care retine in fiecare element matricea (alocata dinamic) citita cu indexul elementului, numarul de linii si de coloane al acesteia, dar si suma elementelor.
+In cele de mai jos voi detalia ce se intampla in cazul fiecarei comenzi.
+
+In cazul in care utilizatorul citeste caracterul 'L'
+	Se verifica daca mai este spatiu in vectorul de matrice. Daca nu mai este atunci se va dubla spatiul alocat pana in acel moment, iar daca mai mult de jumatate din memorie este neutilizata, atunci aceasta se va injumatati. Dupa aceea, se aloca dinamic matricea respectiva si se citesc elementele acesteia. 
+In cazul in care utilizatorul citeste caracterul 'D'
+	Sunt afisate pe ecranul user-ului dimensiunile matricei.
+In cazul in care utilizatorul citeste caracterul 'P'
+	Este afisat pe ecranul user-ului matricea cu indexul citit(daca aceasta exista)
+In cazul in care utilizatorul citeste caracterul 'C'
+	Matricea cu indexul respectiv este redimensionata in memorie si va contine elementele din matricea originala ale caror coordonate sunt prezente in tablourile tablou_linii si tablou_coloane. Totodata, este utilizata o matrice auxiliara alocata dinamic. 
+In cazul in care utilizatorul citeste caracterul 'M'
+	In cazul in care matricele cu indexii oferiti exista si sunt compatibile atunci este realizata inmultirea acestora, iar matricea rezultat este retinuta in vectorul de matrice.
+In cazul in care utilizatorul citeste caracterul 'O'
+	Matricele sunt sortate in complexitate timp O(n^2) in functie de suma elementelor(modulo 10007).
+In cazul in care utilizatorul citeste caracterul 'R'
+	In cazul in care matrice pe care utilizatorul vrea sa o ridice la patrat este patratica atunci este apelata functia expo, care calculeaza matricea la puterea citita in timp logaritmic(cu fiecare element modulo 10007).
+In cazul in care utilizatorul citeste caracterul 'T'
+	Daca exista matricea cu indexul citit atunci matricea respectiva este transpusa in complexitatea timp O(n^2).
+In cazul in care utilizatorul citeste caracterul 'F'
+	Daca exista matricea cu indexul citit, aceasta este trecuta la finalul vectorului de matrice si este stearsa acesta. Aceasta comanda este urmata de o verificare a spatiului de memorie, in cazul in care este prea mult liber.
+In cazul in care utilizatorul citeste caracterul 'S'
+	Daca matricele cu indexii cititi sunt compatibile atunci acestea sunt inmultite cu algoritmul Strassen. Toate matricele auxiliare pentru ca acest algoritm sa functioneze in mod corect sunt alocate dinamic si eliberate in finalul functiei.De asemenea, matricele folosite pentru a reduce numarul de inmultiri sunt calculate prin apelarea recursiva a aceluiasi algoritm. Complexitatea timp este O(n^log7).
+In cazul in care utilizatorul citeste caracterul 'Q'
+	Toate resursele programului sunt dealocate si programul se incheie.
